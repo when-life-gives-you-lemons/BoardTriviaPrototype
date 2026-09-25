@@ -23,7 +23,7 @@ public class Timer : MonoBehaviour
             if (timer > 0)
             {
                 timer -= Time.deltaTime;
-                timerText.text = timer.ToString("F2");
+                timerText.text = timer.ToString("F0");
             }
 
             else
