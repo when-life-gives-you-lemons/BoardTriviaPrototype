@@ -5,22 +5,38 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    public float timer = 30f;
-    private QuestionManager questionManager;
+    public float timer = 10f;
+    [SerializeField] QuestionManager questionManager;
     private TMP_Text timerText;
+    public bool isTimerRunning;
     
     void Start()
     {
         timerText =  GetComponent<TMP_Text>();
+        isTimerRunning = true;
     }
 
     void Update()
     {
-        timer -= Time.deltaTime;
-        timerText.text = timer.ToString("F2");
-        if (timer <= 0f)
+        if (isTimerRunning)
         {
-            questionManager.ShowAnswers();
+            if (timer > 0)
+            {
+                timer -= Time.deltaTime;
+                timerText.text = timer.ToString("F2");
+            }
+
+            else
+            {
+                timer = 0;
+                isTimerRunning = false;
+                TimerEnded();
+            }
         }
+    }
+
+    void TimerEnded()
+    {
+        questionManager.ShowAnswers();
     }
 }

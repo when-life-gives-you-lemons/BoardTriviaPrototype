@@ -14,6 +14,8 @@ public class QuestionManager : MonoBehaviour
     void Start()
     {
         questionNumber = 0;
+        Questions[questionNumber].gameObject.SetActive(true);
+
     }
 
     // Update is called once per frame
