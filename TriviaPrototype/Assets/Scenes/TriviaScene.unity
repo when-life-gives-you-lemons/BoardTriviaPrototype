@@ -397,7 +397,17 @@ MonoBehaviour:
   - {fileID: 651261607643783048}
   - {fileID: 793230348522355144}
   - {fileID: 8354207148543602020}
+  CorrectAnser:
+  - {fileID: 3085910018256897529}
+  - {fileID: 3036889641963620497}
+  - {fileID: 3469052544917843464}
+  - {fileID: 2152956957837453883}
+  - {fileID: 2268724462636061469}
   questionNumber: 0
+  questionUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+  timer: {fileID: 2009066363}
 --- !u!114 &1975318056 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3035461758381528972, guid: 228be629cab608942b3790859471a8f0, type: 3}
@@ -482,7 +492,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 30
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -569,7 +579,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4708502679299387984, guid: 280ae93561a9d2f45987685beb4682ba, type: 3}
       propertyPath: m_Name
-      value: Timer
+      value: TimerBg
       objectReference: {fileID: 0}
     - target: {fileID: 6209976973397963328, guid: 280ae93561a9d2f45987685beb4682ba, type: 3}
       propertyPath: m_SortingOrder

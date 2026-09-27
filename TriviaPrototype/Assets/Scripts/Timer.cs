@@ -38,5 +38,6 @@ public class Timer : MonoBehaviour
     void TimerEnded()
     {
         questionManager.ShowAnswers();
+        Debug.Log("Timer Ended!");
     }
 }
