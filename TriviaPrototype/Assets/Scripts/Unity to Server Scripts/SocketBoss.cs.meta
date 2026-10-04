@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 25c5c021a791c06418a3d56a82e1a1ab
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - EventNameTxt: {instanceID: 0}
+  - DataTxt: {instanceID: 0}
+  - ReceivedText: {instanceID: 0}
+  - objectToSpin: {fileID: 8106465101507682546, guid: be50e846c471d1b448f097f823479738, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

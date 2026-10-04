@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.itisnajim.socketiounity": "https://github.com/itisnajim/SocketIOUnity.git",
     "com.unity.collab-proxy": "2.12.4",
     "com.unity.feature.2d": "2.0.1",
     "com.unity.ide.rider": "3.0.31",
@@ -9,7 +10,7 @@
     "com.unity.timeline": "1.7.6",
     "com.unity.ugui": "1.0.0",
     "com.unity.visualscripting": "1.9.4",
-    "fun.board": "file:C:/Users/ksper/Downloads/fun.board-3.2.1(1).tgz",
+    "fun.board": "file:C:/Users/virgi/Downloads/fun.board-3.3.0.tgz",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",

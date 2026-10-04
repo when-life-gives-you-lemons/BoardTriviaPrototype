@@ -8,7 +8,7 @@ public class QuestionManager : MonoBehaviour
 {
     [SerializeField] public List<TMP_Text> Questions = new List<TMP_Text>();
     [SerializeField] public List<TMP_Text> Answers = new List<TMP_Text>();
-    [SerializeField] public List<GameObject> CorrectAnser = new List<GameObject>();
+    [SerializeField] public List<GameObject> CorrectAnswer = new List<GameObject>();
 
     public int questionNumber;
     public UnityEvent questionUpdate;
@@ -41,7 +41,7 @@ public class QuestionManager : MonoBehaviour
 
     public void ShowCorrectAnswer()
     {
-        CorrectAnser[questionNumber].SetActive(true);
+        CorrectAnswer[questionNumber].SetActive(true);
         Debug.Log("Displaying CorrectAnswer");
         Invoke("NextQuestion", 5f); //5 for testing purposes, can be longer for final
 
@@ -52,7 +52,7 @@ public class QuestionManager : MonoBehaviour
         
         Questions[questionNumber].gameObject.SetActive(false);
         Answers[questionNumber].gameObject.SetActive(false);
-        CorrectAnser[questionNumber].SetActive(false);
+        CorrectAnswer[questionNumber].SetActive(false);
 
         questionNumber++;
         Debug.Log("Next Question is " + questionNumber);

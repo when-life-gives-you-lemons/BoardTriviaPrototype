@@ -271,6 +271,7 @@ GameObject:
   - component: {fileID: 629606043}
   - component: {fileID: 629606042}
   - component: {fileID: 629606041}
+  - component: {fileID: 629606044}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -352,6 +353,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &629606044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 629606040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25c5c021a791c06418a3d56a82e1a1ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventNameTxt: {fileID: 0}
+  DataTxt: {fileID: 0}
+  ReceivedText: {fileID: 0}
+  objectToSpin: {fileID: 0}
+  questionObject: {fileID: 2021669697}
 --- !u!114 &879612156 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4918361612491209812, guid: 228be629cab608942b3790859471a8f0, type: 3}
@@ -397,12 +415,7 @@ MonoBehaviour:
   - {fileID: 651261607643783048}
   - {fileID: 793230348522355144}
   - {fileID: 8354207148543602020}
-  CorrectAnser:
-  - {fileID: 3085910018256897529}
-  - {fileID: 3036889641963620497}
-  - {fileID: 3469052544917843464}
-  - {fileID: 2152956957837453883}
-  - {fileID: 2268724462636061469}
+  CorrectAnswer: []
   questionNumber: 0
   questionUpdate:
     m_PersistentCalls:
@@ -569,6 +582,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2009066361}
   m_CullTransparentMesh: 1
+--- !u!1 &2021669697 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4669915648723689728, guid: 228be629cab608942b3790859471a8f0, type: 3}
+  m_PrefabInstance: {fileID: 562171781}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2026521967
 PrefabInstance:
   m_ObjectHideFlags: 0
