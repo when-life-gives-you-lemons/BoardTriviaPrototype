@@ -8,6 +8,7 @@ MonoImporter:
   - DataTxt: {instanceID: 0}
   - ReceivedText: {instanceID: 0}
   - objectToSpin: {fileID: 8106465101507682546, guid: be50e846c471d1b448f097f823479738, type: 3}
+  - questionObject: {fileID: 4669915648723689728, guid: 228be629cab608942b3790859471a8f0, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

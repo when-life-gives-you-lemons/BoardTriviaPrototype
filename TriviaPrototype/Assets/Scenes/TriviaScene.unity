@@ -365,11 +365,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25c5c021a791c06418a3d56a82e1a1ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EventNameTxt: {fileID: 0}
-  DataTxt: {fileID: 0}
-  ReceivedText: {fileID: 0}
-  objectToSpin: {fileID: 0}
+  QuestionNumberCheck: {fileID: 0}
   questionObject: {fileID: 2021669697}
+  questionManager: {fileID: 1055281043}
 --- !u!114 &879612156 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4918361612491209812, guid: 228be629cab608942b3790859471a8f0, type: 3}
@@ -415,7 +413,12 @@ MonoBehaviour:
   - {fileID: 651261607643783048}
   - {fileID: 793230348522355144}
   - {fileID: 8354207148543602020}
-  CorrectAnswer: []
+  CorrectAnswer:
+  - {fileID: 3085910018256897529}
+  - {fileID: 3036889641963620497}
+  - {fileID: 3469052544917843464}
+  - {fileID: 2152956957837453883}
+  - {fileID: 2268724462636061469}
   questionNumber: 0
   questionUpdate:
     m_PersistentCalls:

@@ -16,7 +16,7 @@ public class SocketManager : MonoBehaviour
     public InputField EventNameTxt;
     public InputField DataTxt;
     public Text ReceivedText;  
-
+// do I need to create an input field?
     public GameObject objectToSpin;
 
     // Start is called before the first frame update

@@ -11,14 +11,15 @@ using Debug = System.Diagnostics.Debug;
 
 public class SocketBoss : MonoBehaviour
 {
-    public SocketIOUnity socket;
+    public SocketIOUnity socket; //package reference for opening web server point.
    
-    public InputField EventNameTxt;
-    public InputField DataTxt;
-    public Text ReceivedText;  
-    public QuestionNumberChecker questionNumberChecker;
-    public GameObject objectToSpin;
+    //public InputField EventNameTxt; //data type?
+    //public InputField DataTxt;
+    //public Text ReceivedText;
+    public InputField QuestionNumberCheck;
+    //public GameObject objectToSpin;
     public GameObject questionObject;
+    public QuestionManager questionManager;
     
 
     // Start is called before the first frame update
@@ -26,18 +27,18 @@ public class SocketBoss : MonoBehaviour
     {
         //TODO: check the Uri if Valid.
         var uri = new Uri("http://192.168.1.107:11100"); //this is where the webserver goes
-        socket = new SocketIOUnity(uri, new SocketIOOptions
+        socket = new SocketIOUnity(uri, new SocketIOOptions 
         {
-            Query = new Dictionary<string, string>
+            Query = new Dictionary<string, string> //pull a data type out of a database
                 {
-                    {"token", "UNITY" }
+                    {"token", "UNITY" } //identifier 
                 }
             ,
-            EIO = EngineIO.V4
+            EIO = EngineIO.V4 // declaring the engine as being version 4
             ,
-            Transport = SocketIOClient.Transport.TransportProtocol.WebSocket
+            Transport = SocketIOClient.Transport.TransportProtocol.WebSocket //unity and the web port opening
         });
-        socket.JsonSerializer = new NewtonsoftJsonSerializer();
+        socket.JsonSerializer = new NewtonsoftJsonSerializer(); //json for the website to process
 
         ///// reserved socketio events
         socket.OnConnected += (sender, e) =>
@@ -71,13 +72,14 @@ public class SocketBoss : MonoBehaviour
         });
         socket.OnUnityThread("questionCheck", (data) =>
         {
+            //something goes here
 
         });
 
-        ReceivedText.text = "";
+        //ReceivedText.text = "";
         socket.OnAnyInUnityThread((name, response) =>
         {
-            ReceivedText.text += "Received On " + name + " : " + response.GetValue().GetRawText() + "\n";
+            //ReceivedText.text += "Received On " + name + " : " + response.GetValue().GetRawText() + "\n";
         });
     }
 
@@ -92,17 +94,20 @@ public class SocketBoss : MonoBehaviour
 
     public void EmitTest()
     {
-        string eventName = EventNameTxt.text.Trim().Length < 1 ? "hello" : EventNameTxt.text;
-        string questionNumberCheck = questionNumberChecker.questionManager.questionNumber.ToString();
-        string txt = DataTxt.text;
-        if (!IsJSON(txt))
+        //string eventName = EventNameTxt.text.Trim().Length < 1 ? "hello" : EventNameTxt.text;
+        //checks if longer than one to check if is not empty
+        //error checker so the event name can't be something invalid
+        string questionNumberCheck = QuestionNumberCheck.ToString();
+        //string txt = DataTxt.text;
+        
+        //if (!IsJSON(txt))
         {
-            socket.Emit(eventName, txt);
+            //socket.Emit(eventName, txt);
             socket.Emit("questionCheck", questionNumberCheck);
         }
-        else
+        //else
         {
-            socket.EmitStringAsJSON(eventName, txt);
+            //socket.EmitStringAsJSON(eventName, txt);
             socket.EmitStringAsJSON("questionCheck", questionNumberCheck);
         }
     }
@@ -176,23 +181,24 @@ public class SocketBoss : MonoBehaviour
     //
     public class QuestionNumberChecker
     {
+        public int num;
         public QuestionManager questionManager;
         
 
         public QuestionNumberChecker(int number)
         {
-            this.questionManager.questionNumber = number;
+            this.num = number;
         }
 
 
-        public static object number { get; }
+        
     }
 
 
     float rotateAngle = 45;
     readonly float MaxRotateAngle = 45;
     int CheckQuestion;
-    readonly int NextQuestion;
+    int NextQuestion;
      
     
     void Update()
@@ -200,20 +206,19 @@ public class SocketBoss : MonoBehaviour
         if(rotateAngle < MaxRotateAngle)
         {
             rotateAngle++;
-            objectToSpin.transform.Rotate(0, 1, 0);
+            //objectToSpin.transform.Rotate(0, 1, 0);
         }
 
-        if (CheckQuestion == NextQuestion)
+        if ( NextQuestion!= questionManager.questionNumber)
         {
-            CheckQuestion++;
-            questionNumberChecker.questionManager.questionNumber = CheckQuestion;
+            Debug.WriteLine(questionManager.questionNumber);
+            
+            NextQuestion= questionManager.questionNumber; //this updates the code
+            Debug.WriteLine(NextQuestion);
+
         }
         
 
-        if (questionNumberChecker.questionManager==QuestionNumberChecker.number)
-        {
-            socket.Emit("spin", rotateAngle);
-            socket.Emit("questionCheck",CheckQuestion);
-        }
+        
     }
 }
