@@ -13,9 +13,9 @@ public class SocketBoss : MonoBehaviour
 {
     public SocketIOUnity socket; //package reference for opening web server point.
    
-    //public InputField EventNameTxt; //data type?
-    //public InputField DataTxt;
-    //public Text ReceivedText;
+    public InputField EventNameTxt; //data type?
+    public InputField DataTxt;
+    public Text ReceivedText;
     public InputField QuestionNumberCheck;
     //public GameObject objectToSpin;
     public GameObject questionObject;
@@ -26,7 +26,7 @@ public class SocketBoss : MonoBehaviour
     void Start()
     {
         //TODO: check the Uri if Valid.
-        var uri = new Uri("http://192.168.1.107:11100"); //this is where the webserver goes
+        var uri = new Uri("http://192.168.0.215:8000/"); //this is where the webserver goes
         socket = new SocketIOUnity(uri, new SocketIOOptions 
         {
             Query = new Dictionary<string, string> //pull a data type out of a database
@@ -79,7 +79,7 @@ public class SocketBoss : MonoBehaviour
         //ReceivedText.text = "";
         socket.OnAnyInUnityThread((name, response) =>
         {
-            //ReceivedText.text += "Received On " + name + " : " + response.GetValue().GetRawText() + "\n";
+            ReceivedText.text += "Received On " + name + " : " + response.GetValue().GetRawText() + "\n";
         });
     }
 
@@ -94,18 +94,18 @@ public class SocketBoss : MonoBehaviour
 
     public void EmitTest()
     {
-        //string eventName = EventNameTxt.text.Trim().Length < 1 ? "hello" : EventNameTxt.text;
+        string eventName = EventNameTxt.text.Trim().Length < 1 ? "hello" : EventNameTxt.text;
         //checks if longer than one to check if is not empty
         //error checker so the event name can't be something invalid
         string questionNumberCheck = QuestionNumberCheck.ToString();
-        //string txt = DataTxt.text;
+        string txt = DataTxt.text;
         
-        //if (!IsJSON(txt))
+        if (!IsJSON(txt))
         {
             //socket.Emit(eventName, txt);
             socket.Emit("questionCheck", questionNumberCheck);
         }
-        //else
+        else
         {
             //socket.EmitStringAsJSON(eventName, txt);
             socket.EmitStringAsJSON("questionCheck", questionNumberCheck);
@@ -198,7 +198,7 @@ public class SocketBoss : MonoBehaviour
     float rotateAngle = 45;
     readonly float MaxRotateAngle = 45;
     int CheckQuestion;
-    int NextQuestion;
+    public int NextQuestion;
      
     
     void Update()
