@@ -1,26 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class QuestionManager : MonoBehaviour
 {
+    //public Question[] TheQuestions;
     [SerializeField] public List<TMP_Text> Questions = new List<TMP_Text>();
     [SerializeField] public List<TMP_Text> Answers = new List<TMP_Text>();
     [SerializeField] public List<GameObject> CorrectAnswer = new List<GameObject>();
 
     public int questionNumber;
-    public UnityEvent questionUpdate;
+    public UnityEvent<SendQuestionToServer> questionUpdate;
 
     [SerializeField] public Timer timer;
-    
+
     // Start is called before the first frame update
     void Start()
     {
         questionNumber = 0;
-        questionUpdate = new UnityEvent();
         questionUpdate.AddListener(DisplayQuestion);
+        NextQuestion();
         Questions[questionNumber].gameObject.SetActive(true);
 
     }
@@ -28,7 +30,7 @@ public class QuestionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void ShowAnswers()
@@ -46,25 +48,33 @@ public class QuestionManager : MonoBehaviour
         Invoke("NextQuestion", 5f); //5 for testing purposes, can be longer for final
 
     }
-    
+
     public void NextQuestion()
     {
-        
+
         Questions[questionNumber].gameObject.SetActive(false);
         Answers[questionNumber].gameObject.SetActive(false);
         CorrectAnswer[questionNumber].SetActive(false);
 
         questionNumber++;
         Debug.Log("Next Question is " + questionNumber);
-        questionUpdate.Invoke();
+        
+        SendQuestionToServer qdata = new SendQuestionToServer();
+        qdata.time = 20;
+        qdata.answers = Answers[questionNumber].text.Trim().Split(" ");
+        qdata.id = questionNumber;
+        questionUpdate.Invoke(qdata);
     }
 
-    public void DisplayQuestion()
+    public void DisplayQuestion(SendQuestionToServer qdata)
     {
-        Questions[questionNumber].gameObject.SetActive(true);
+        Questions[qdata.id].gameObject.SetActive(true);
         Debug.Log("Displaying Question!");
         timer.timer = 10f;
         timer.isTimerRunning = true;
 
     }
+    
 }
+
+   

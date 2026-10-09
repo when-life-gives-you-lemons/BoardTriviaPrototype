@@ -1,4 +1,4 @@
-using System;
+/*using System;
 using System.Collections.Generic;
 using SocketIOClient;
 using SocketIOClient.Newtonsoft.Json;
@@ -26,7 +26,7 @@ public class SocketBoss : MonoBehaviour
     void Start()
     {
         //TODO: check the Uri if Valid.
-        var uri = new Uri("http://192.168.0.215:8000/"); //this is where the webserver goes
+        var uri = new Uri("http://192.168.0.215:3000/"); //this is where the webserver goes
         socket = new SocketIOUnity(uri, new SocketIOOptions 
         {
             Query = new Dictionary<string, string> //pull a data type out of a database
@@ -221,4 +221,4 @@ public class SocketBoss : MonoBehaviour
 
         
     }
-}
+}*/

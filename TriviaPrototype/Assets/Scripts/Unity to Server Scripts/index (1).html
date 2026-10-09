@@ -1,0 +1,18 @@
+﻿<script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket = io();
+    
+    function sendAnswer(color) {
+        console.log(color);
+        socket.emit('answer', color);
+    }
+</script>
+
+<p>
+    hewwo wowld :3c
+</p>
+
+<button onclick="sendAnswer('red')">RED</button>
+<button onclick="sendAnswer('blue')">BLUE</button>
+<button onclick="sendAnswer('green')">GREEN</button>
+<button onclick="sendAnswer('yellow')">YELLOW</button>
