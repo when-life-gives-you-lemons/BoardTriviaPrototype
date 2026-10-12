@@ -11,6 +11,7 @@ public class QuestionManager : MonoBehaviour
     [SerializeField] public List<TMP_Text> Questions = new List<TMP_Text>();
     [SerializeField] public List<TMP_Text> Answers = new List<TMP_Text>();
     [SerializeField] public List<GameObject> CorrectAnswer = new List<GameObject>();
+    [SerializeField] public GameObject gameOverScreen;
 
     public int questionNumber;
     public UnityEvent<SendQuestionToServer> questionUpdate;
@@ -68,10 +69,18 @@ public class QuestionManager : MonoBehaviour
 
     public void DisplayQuestion(SendQuestionToServer qdata)
     {
-        Questions[qdata.id].gameObject.SetActive(true);
-        Debug.Log("Displaying Question!");
-        timer.timer = 10f;
-        timer.isTimerRunning = true;
+        if (questionNumber > Questions.Count)
+        {
+            gameOverScreen.SetActive(true);
+            //qdata = "the" "Game" "Is" "Over"
+        }
+        else
+        {
+            Questions[qdata.id].gameObject.SetActive(true);
+            Debug.Log("Displaying Question!");
+            timer.timer = 10f;
+            timer.isTimerRunning = true;
+        }
 
     }
     
