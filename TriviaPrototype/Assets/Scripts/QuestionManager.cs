@@ -44,15 +44,21 @@ public class QuestionManager : MonoBehaviour
 
     public void ShowCorrectAnswer()
     {
+        if (questionNumber >= Questions.Count - 1)
+        {
+            Debug.Log("no more quesitons!!!!");
+            return;
+        }
         CorrectAnswer[questionNumber].SetActive(true);
         Debug.Log("Displaying CorrectAnswer");
+
+       
         Invoke("NextQuestion", 5f); //5 for testing purposes, can be longer for final
 
     }
 
     public void NextQuestion()
     {
-
         Questions[questionNumber].gameObject.SetActive(false);
         Answers[questionNumber].gameObject.SetActive(false);
         CorrectAnswer[questionNumber].SetActive(false);

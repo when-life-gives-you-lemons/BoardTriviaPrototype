@@ -6,7 +6,7 @@ using SocketIOClient;
 public class SocketInit : MonoBehaviour
 {
     //Server URL
-    Uri _uri = new Uri("http://192.168.0.215:3000");
+    public Uri _uri = new Uri("http://192.168.0.93:3000");
     
     // vars
     private string targetColor = "";
@@ -31,14 +31,10 @@ public class SocketInit : MonoBehaviour
         });
         
         // listen for the event from the server
-        socket.On("triviaResponse", response =>
+        socket.On("TriviaAnswer", response =>
         {
-            string color = response.GetValue<string>();
-            Debug.Log("Received trivia response: " + color);
-            
-            //socket is running in a background thread, set a target color flag to be detected in update, which is running on the main thread.
-            targetColor = color;
-            shouldUpdateColor = true;
+            Debug.Log("Received trivia response: " + response);
+           
         });
 
         // actually connect to the server via the new socket
