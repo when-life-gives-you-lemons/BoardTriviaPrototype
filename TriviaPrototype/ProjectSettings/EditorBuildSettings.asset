@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/TriviaScene.unity
+    guid: 1f0bc51614e99014fa495746220ece2a
   m_configObjects:
     fun.board.input.settings: {fileID: 11400000, guid: bc8e4915cb8f37947aa5f89af0b78afc, type: 2}
     fun.board.settings: {fileID: 11400000, guid: 251a1b84539259b48b736b263cab69d8, type: 2}

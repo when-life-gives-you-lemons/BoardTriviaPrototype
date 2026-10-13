@@ -395,13 +395,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2308110721416880978, guid: 228be629cab608942b3790859471a8f0, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2468146891892316327, guid: 228be629cab608942b3790859471a8f0, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2536497902236154655, guid: 228be629cab608942b3790859471a8f0, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3035461758381528972, guid: 228be629cab608942b3790859471a8f0, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4669915648723689728, guid: 228be629cab608942b3790859471a8f0, type: 3}
       propertyPath: m_Name
       value: Qs&As
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918361612491209812, guid: 228be629cab608942b3790859471a8f0, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6203346299586819165, guid: 228be629cab608942b3790859471a8f0, type: 3}
       propertyPath: m_IsActive
@@ -446,6 +462,10 @@ PrefabInstance:
     - target: {fileID: 6380618345400107938, guid: 228be629cab608942b3790859471a8f0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8098714995695272287, guid: 228be629cab608942b3790859471a8f0, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8281757127323166662, guid: 228be629cab608942b3790859471a8f0, type: 3}
       propertyPath: m_Name
@@ -638,6 +658,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Questions:
   - {fileID: 1975318056}
+  - {fileID: 1975318056}
   - {fileID: 235121394}
   - {fileID: 879612156}
   - {fileID: 106789857}
@@ -645,12 +666,14 @@ MonoBehaviour:
   - {fileID: 330926643}
   Answers:
   - {fileID: 3018163581086528579}
+  - {fileID: 3018163581086528579}
   - {fileID: 2600408882370575823}
   - {fileID: 651261607643783048}
   - {fileID: 793230348522355144}
   - {fileID: 8354207148543602020}
   - {fileID: 1818952017}
   CorrectAnswer:
+  - {fileID: 3085910018256897529}
   - {fileID: 3085910018256897529}
   - {fileID: 3036889641963620497}
   - {fileID: 3469052544917843464}
@@ -948,7 +971,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 0.9607844, g: 0.93725497, b: 0.87843144, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -971,7 +994,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535

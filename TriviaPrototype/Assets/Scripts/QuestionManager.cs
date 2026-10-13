@@ -21,11 +21,16 @@ public class QuestionManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        InitGame();
+    }
+
+    void InitGame()
+    {
         questionNumber = 0;
         questionUpdate.AddListener(DisplayQuestion);
         NextQuestion();
         Questions[questionNumber].gameObject.SetActive(true);
-
+  
     }
 
     // Update is called once per frame
